@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css"
 import Navitems from "../Navitems/Navitems";
-let items = [{Nombre:"HOME", ruta: "/"}, {Nombre: "FAVORITOS", ruta: "/favoritos"}, {Nombre: "VER TODAS", ruta: "/vertodas"}];
+let items = [{Nombre:"HOME", ruta: "/"}, {Nombre: "FAVORITOS", ruta: "/favoritos"}, {Nombre: "VER  POPULARES", ruta: "/vertodaspopu"}, {Nombre: "VER  EN CARTELERA ", ruta: "/vertodascartelera"}];
 
 function Nav() {
     return (

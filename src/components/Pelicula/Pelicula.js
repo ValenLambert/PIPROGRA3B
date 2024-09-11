@@ -9,9 +9,11 @@ class Pelicula extends Component {
             id: props.id,
             title: props.title,
             img: props.img,
-            extra: props.overview,
+            extra: props.extra,
             info:true,
+            agregada: true,
         }
+        console.log("MIRAAA", props)
     }
     
     cambio () {
@@ -25,29 +27,37 @@ class Pelicula extends Component {
             })
         }
     }
+
+    favoritos (){
+        if(this.state.agregada){
+            this.setState ({
+                agregada: false
+            })
+        } else {
+            this.setState ({
+                agregada: true
+            })
+        }
+    }
     
     render () {
         return (
-            this.props ? (
                 <article className='character-card'>
-                    <img src={this.state.img} alt={this.state.title} />
+                    <img src={`https://image.tmdb.org/t/p/original${this.state.img}`} alt={this.state.title} />
                     <h4>{this.state.title}</h4>
                     <Link to={`detalle/${this.state.id}`}>
-                        <button>Ir a detalle</button> <br />
+                        <button className="Botonete">Ir a detalle</button> <br />
                     </Link>
-                    <button onClick={() => this.cambio()}>
+                    <button className="Botonete" onClick={() => this.cambio()}>
                         {this.state.info ? 'Ver descripcion' : 'Ver menos'}
                     </button>
                     <div className={`${this.state.info ? 'hidden' : 'show'}`}>
                         <p>{this.state.extra}</p>
-                    </div>
-                    <p className='delete'>Borrar</p>                
-                
-                </article>
-            ) : (
-                <h1>Cargando...</h1>
-            )
-        );
+                    </div> <br></br>
+                    <br></br>
+                    <p className="delete" onClick={() => this.favoritos()}>
+                        {this.state.agregada ? 'Agregar a favoritos' : 'Quitar de favoritos'}</p>                
+                </article>)
         }
 }
 

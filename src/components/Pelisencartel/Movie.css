@@ -1,6 +1,5 @@
 .character-card{
-    color: #070F2B;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
     font-size: 20px;
     padding: 15px;
     margin-bottom: 20px;
@@ -44,3 +43,10 @@ box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
     display: none;
 }
 
+.Botonete {
+    background-color: #070f2b94; 
+    color: #535C91;
+    border-radius: 5px;       
+    font-size: 16px;         
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

@@ -3,7 +3,7 @@ import "./Movie.css";
 import Pelicula from "../Pelicula/Pelicula";
 const apiKey= '42737f60c529bfe7e9586db8cb132a1c';
 
-class Pelispopu extends Component {
+class Pelisencartel extends Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -27,9 +27,10 @@ class Pelispopu extends Component {
 
     componentDidMount (){
         console.log("mount")
-        fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${apiKey}`) 
+        fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=${apiKey}`) 
         .then((resp)=> resp.json()) 
         .then((data)=> {
+            console.log("acaaaaa:", data)
             this.setState({
                 peliculas: data.results
             });
@@ -49,7 +50,7 @@ class Pelispopu extends Component {
         const peliculasAMostrar = this.state.peliculas.slice(0, this.state.mostrar);
         return (
             <React.Fragment>
-                <h1 className="Subtitulos">Peliculas populares:</h1>
+                <h1 className="Subtitulos">Peliculas en cartelera:</h1>
                 <div className="Tarjeta">
                     {peliculasAMostrar.map((elem) => (
                         <Pelicula
@@ -70,4 +71,4 @@ class Pelispopu extends Component {
     }
 }
 
-export default Pelispopu
+export default Pelisencartel

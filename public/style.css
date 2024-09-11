@@ -7,3 +7,29 @@ body {
     background-color: #070F2B;
     padding-bottom: 150px;
 }
+
+.Tarjeta {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #666;
+    margin: 37px;
+}
+
+.Subtitulos {
+    font-size: 35px;
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.Boton {
+        background-color: #535C91; 
+        color: white;              
+        padding: 10px 20px;       
+        border: none;            
+        border-radius: 5px;       
+        font-size: 16px;         
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        transform: translate(720%, -50%);
+    }
