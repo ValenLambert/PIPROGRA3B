@@ -1,30 +1,18 @@
 import React, { Component } from "react";
 import "./Movie.css";
+import { Link } from "react-router-dom";
 import Pelicula from "../Pelicula/Pelicula";
 
 const apiKey= '42737f60c529bfe7e9586db8cb132a1c';
 
-class Pelisencartel extends Component {
+class Cartelera extends Component {
     constructor (props) {
         super(props);
         this.state = {
             peliculas: [],
-            mostrar: 10,
-            busqueda: ""
+            mostrar: 5,
         }
     }
-
-    verMas() {
-        this.setState((prevState) => ({
-          mostrar: prevState.mostrar + 5
-        }));
-      }
-
-    verMenos() {
-        this.setState((prevState) => ({
-          mostrar: prevState.mostrar- 5
-        }));
-      }
       
 
     componentDidMount (){
@@ -65,16 +53,13 @@ class Pelisencartel extends Component {
                         />
                     ))}
             </div>
-            {this.state.mostrar < 20 ?
-                 <button className="Boton1" onClick={() => this.verMas()}>Ver mas</button> : ""
-                        }
-            {this.state.mostrar >= 10 ?
-                <button className="Boton2" onClick={() => this.verMenos()}>Ver Menos</button>: ""
-                        }
+                <Link to="/vertodascartelera">
+                <button className="Boton3">Ver mas</button>: 
+                </Link>
           </React.Fragment>
         
         )
     }
 }
 
-export default Pelisencartel
+export default Cartelera

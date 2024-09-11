@@ -23,7 +23,29 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.Boton {
+.Boton1 {
+        background-color: #535C91; 
+        color: white;              
+        padding: 10px 20px;       
+        border: none;            
+        border-radius: 5px;       
+        font-size: 16px;         
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        transform: translate(400%, -50%);
+    }
+
+.Boton2 {
+        background-color: #535C91; 
+        color: white;              
+        padding: 10px 20px;       
+        border: none;            
+        border-radius: 5px;       
+        font-size: 16px;         
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        transform: translate(720%, -50%);
+    }
+
+.Boton3 {
         background-color: #535C91; 
         color: white;              
         padding: 10px 20px;       

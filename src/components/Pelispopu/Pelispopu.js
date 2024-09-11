@@ -9,7 +9,7 @@ class Pelispopu extends Component {
         super(props);
         this.state = {
             peliculas: [],
-            mostrar: 5,
+            mostrar: 10,
             busqueda: ""
         }
     }
@@ -21,8 +21,8 @@ class Pelispopu extends Component {
     }
 
     verMenos() {
-        this.setState(() => ({
-            mostrar: 5
+        this.setState((prevState) => ({
+            mostrar: prevState.mostrar- 5
         }));
     }
 
@@ -98,7 +98,7 @@ class Pelispopu extends Component {
                         <div className="Tarjeta">
                             {peliculasAMostrar.map((elem) => (
                                 <Pelicula
-                                    key={elem.id} // Asegúrate de incluir una `key` única para cada elemento
+                                    key={elem.id} 
                                     img={elem.poster_path}
                                     title={elem.title}
                                     id={elem.id}
@@ -106,10 +106,12 @@ class Pelispopu extends Component {
                                 />
                             ))}
                         </div>
-                        <button className="Boton" onClick={() => this.verMas()}>Ver más</button>
-                        {this.state.mostrar > 5 && (
-                            <button className="Boton" onClick={() => this.verMenos()}>Ver menos</button>
-                        )}
+                        {this.state.mostrar < 20 ?
+                            <button className="Boton1" onClick={() => this.verMas()}>Ver mas</button> : ""
+                        }
+                        {this.state.mostrar >= 10 ?
+                            <button className="Boton2" onClick={() => this.verMenos()}>Ver Menos</button>: ""
+                        }
                     </>
                 ) : 
                 
