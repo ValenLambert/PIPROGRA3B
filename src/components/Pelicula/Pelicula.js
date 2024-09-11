@@ -40,6 +40,8 @@ class Pelicula extends Component {
         }
     }
     
+    
+
     render () {
         return (
                 <article className='character-card'>

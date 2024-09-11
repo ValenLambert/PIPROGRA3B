@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Movie.css";
 import Pelicula from "../Pelicula/Pelicula";
+
 const apiKey= '42737f60c529bfe7e9586db8cb132a1c';
 
 class Pelisencartel extends Component {
@@ -9,6 +10,7 @@ class Pelisencartel extends Component {
         this.state = {
             peliculas: [],
             mostrar: 5,
+            busqueda: ""
         }
     }
 
@@ -38,6 +40,7 @@ class Pelisencartel extends Component {
         .catch((e)=> console.log (e))
     }
 
+
     componentDidUpdate (){
         console.log("update")
     }
@@ -51,6 +54,7 @@ class Pelisencartel extends Component {
         return (
             <React.Fragment>
                 <h1 className="Subtitulos">Peliculas en cartelera:</h1>
+
                 <div className="Tarjeta">
                     {peliculasAMostrar.map((elem) => (
                         <Pelicula
