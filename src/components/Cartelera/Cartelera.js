@@ -29,6 +29,9 @@ class Cartelera extends Component {
     }
 
 
+
+
+    
     componentDidUpdate (){
         console.log("update")
     }
