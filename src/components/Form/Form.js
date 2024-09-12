@@ -1,39 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Form.css"
 
-class Form extends Component {
-    constructor (props) {
-        super(props);
-        this.state = {
-            valor : ""
-        }
-    }
-
-    evitarSubmit (event){
-        event.PreventDefault()
-    }
-
-    controlarCambios (event){
-
-    }
-
-    filtrarPeliculas (nombrePelicula){
-        const peliculasfiltradas = this.state.peliculas.filter(
-            (elem)=>elem.tittle.tolowercase().includes(nombrePelicula.tolowercase())
-        )
-    }
-
-    render (){
-        return (
-            <React.Fragment>
-                <form onSubmit={(event)=>this.evitarSubmit(event)}>
+function Form() {
+    return (
+        <React.Fragment>
+                <form>
                     <input
                         type="text"
                         placeholder="Busca tu película..."
-                        onChange={(event) => this.controlarCambios(event)}
                     />
             </form>
-            </React.Fragment>)
+        </React.Fragment>
+    )
 }
-}
+
+
 export default Form

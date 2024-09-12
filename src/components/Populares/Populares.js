@@ -42,10 +42,6 @@ class Populares extends Component {
             <React.Fragment>
                 
                 <h1 className="Subtitulos">Peliculas populares:</h1>
-
-                {this.state.peliculas.length === 0 ? (
-                     <h1>Cargando ...</h1> ) 
-                     :
                     <>
                             <div className="Tarjeta">
                             {peliculasAMostrar.map((elem) => (
@@ -62,7 +58,6 @@ class Populares extends Component {
                         </Link>
                     </>
                 
-                            }
             </React.Fragment>
 
         )

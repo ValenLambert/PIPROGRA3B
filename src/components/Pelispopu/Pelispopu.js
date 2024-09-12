@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Movie.css";
 import Pelicula from "../Pelicula/Pelicula";
-import Buscador from "../Buscador/Buscador";
 const apiKey = '42737f60c529bfe7e9586db8cb132a1c';
 
 class Pelispopu extends Component {
@@ -10,7 +9,6 @@ class Pelispopu extends Component {
         this.state = {
             peliculas: [],
             mostrar: 10,
-            busqueda: ""
         }
     }
 
@@ -40,29 +38,6 @@ class Pelispopu extends Component {
             })
             .catch((e) => console.log(e))
     }
-    // from de busqueda
-    buscarPeliculas = () => {
-        fetch(`https://api.themoviedb.org/3/search/movie?query=${this.state.busqueda}&language=en-US&page=1&api_key=${apiKey}`)
-            .then((resp) => resp.json())
-            .then((data) => {
-                this.setState({
-                    peliculas: data.results ? data.results : []
-                });
-            })
-            .catch((error) => console.log(error))
-    }
-
-    // form
-    evitarSubmit = (event) => {
-        event.preventDefault();
-        this.buscarPeliculas(); // Realizar la búsqueda al enviar el formulario
-    }
-
-    controlarCambios = (event) => {
-        this.setState({
-            busqueda: event.target.value
-        });
-    }
 
     componentDidUpdate() {
         console.log("update")
@@ -75,25 +50,11 @@ class Pelispopu extends Component {
 
 
     render() {
-        const peliculasAMostrar = this.state.peliculas
-        .filter(pelicula => pelicula.title.toLowerCase().includes(this.state.busqueda.toLowerCase()))
-        .slice(0, this.state.mostrar)
-
-        //form:
-        // const peliculasFiltradas = this.state.peliculas.filter(pelicula => pelicula.title.toLowerCase().includes(this.state.busqueda.toLowerCase()));
+        const peliculasAMostrar = this.state.peliculas.slice(0, this.state.mostrar);
 
         return (
             <React.Fragment>
                 <h1 className="Subtitulos">Peliculas populares:</h1>
-                <Buscador
-                            evitarSubmit={this.evitarSubmit}
-                            controlarCambios={this.controlarCambios}
-                            busqueda={this.state.busqueda}
-                        />
-
-                {this.state.peliculas.length === 0 ? (
-                     <h1>Cargando ...</h1> ) :
-                     peliculasAMostrar.length > 0 ? (
                     <>
                         <div className="Tarjeta">
                             {peliculasAMostrar.map((elem) => (
@@ -113,10 +74,7 @@ class Pelispopu extends Component {
                             <button className="Boton2" onClick={() => this.verMenos()}>Ver Menos</button>: ""
                         }
                     </>
-                ) : 
-                
-                <h1> No se ha encontrado ningun resultado </h1>}
-                
+
             </React.Fragment>
 
         )
